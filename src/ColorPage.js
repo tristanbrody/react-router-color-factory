@@ -1,14 +1,10 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import "./ColorPage.css";
 
-function ColorPage({ colors }) {
-  return colors.map(c => {
-    return (
-      <NavLink exact to={c.path}>
-        {c.name}
-      </NavLink>
-    );
-  });
+function ColorPage() {
+  const { color } = useParams();
+  return <body style={{ backgroundColor: color }}>Welcome to {color}</body>;
 }
 
 export default ColorPage;
